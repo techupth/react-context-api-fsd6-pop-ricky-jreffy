@@ -3,6 +3,9 @@ import "./App.css";
 
 import HomePage from "./pages/HomePage.jsx";
 import ViewProductPage from "./pages/ViewProductPage.jsx";
+import { createContext } from "react";
+
+export const dataContext = createContext();
 
 function App() {
   const userData = {
@@ -12,6 +15,7 @@ function App() {
   };
 
   return (
+    <dataContext.Provider value={userData}>
     <div className="App">
       <Router>
         <Routes>
@@ -20,6 +24,7 @@ function App() {
         </Routes>
       </Router>
     </div>
+    </dataContext.Provider>
   );
 }
 
